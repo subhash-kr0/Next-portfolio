@@ -1,14 +1,14 @@
 import express from "express";
 import {
-    getUser,
-    login,
-    logout,
-    register,
-    updatePassword,
-    updateProfile,
-    forgotPassword,
-    resetPassword,
-    getUserForPortfolio,
+  getUser,
+  login,
+  logout,
+  register,
+  updatePassword,
+  updateProfile,
+  forgotPassword,
+  resetPassword,
+  getUserForPortfolio,
 } from "../controller/userController.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 

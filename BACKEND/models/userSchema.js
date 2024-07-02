@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import crypto from "cryprto";
+import crypto from "crypto";
 
 const userSchema = new mongoose.Schema({
     fullName: {
@@ -104,4 +104,4 @@ userSchema.methods.getResetPasswordToken = function() {
     return resetToken;
 };
 
-export const user = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
