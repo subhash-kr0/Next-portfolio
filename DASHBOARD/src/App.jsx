@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Login from "./pages/Login";
+import HomePage from "./pages/HomePage";
+import ManageSkills from "./pages/ManageSkills";
+import ManageProjects from "./pages/ManageProjects";
+import UpdateProject from "./pages/UpdateProject";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getUser } from "./store/slices/userSlice";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import { getAllSkills } from "./store/slices/skillSlice";
+import { getAllSoftwareApplications } from "./store/slices/softwareApplicationSlice";
+import { getAllTimeline } from "./store/slices/timelineSlice";
+import { getAllMessages } from "./store/slices/messageSlice";
+import ManageTimeline from "./pages/ManageTimeline";
+import { getAllProjects } from "./store/slices/projectSlice";
+import ViewProject from "./pages/ViewProject";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getUser());
+    dispatch(getAllSkills());
+    dispatch(getAllSoftwareApplications());
+    dispatch(getAllTimeline());
+    dispatch(getAllMessages());
+    dispatch(getAllProjects());
+  }, []);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/password/forgot" element={<ForgotPassword />} />
+        <Route path="/password/reset/:token" element={<ResetPassword />} />
+        <Route path="/manage/skills" element={<ManageSkills />} />
+        <Route path="/manage/timeline" element={<ManageTimeline />} />
+        <Route path="/manage/projects" element={<ManageProjects />} />
+        <Route path="/view/project/:id" element={<ViewProject />} />
+        <Route path="/update/project/:id" element={<UpdateProject />} />
+      </Routes>
+      <ToastContainer position="bottom-right" theme="dark" />
+    </Router>
+
+  );
 }
 
-export default App
+export default App;
