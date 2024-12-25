@@ -32,7 +32,6 @@ function App() {
     dispatch(getAllProjects());
   }, []);
   return (
-
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -47,7 +46,6 @@ function App() {
       </Routes>
       <ToastContainer position="bottom-right" theme="dark" />
     </Router>
-
   );
 }
 
