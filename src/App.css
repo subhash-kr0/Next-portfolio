@@ -1,29 +1,42 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
-::-webkit-scrollbar {
-  width: 15px;
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-::-webkit-scrollbar-track {
-  background: #d1e5ff;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#642bff, #ff22e6);
-  border-radius: 7px;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
-.avatar-update-btn::file-selector-button {
-  width: 100%;
-  padding: 7px;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 1px solid hsl(222.2 47.4% 11.2%);
-  background: hsl(222.2 47.4% 11.2%);
-  cursor: pointer;
-  color: #fff;
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.avatar-update-btn::file-selector-button:hover {
-  background: transparent;
-  color: hsl(222.2 47.4% 11.2%);
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
