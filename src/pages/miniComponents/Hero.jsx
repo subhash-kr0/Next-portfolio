@@ -18,7 +18,7 @@ import {
     useEffect(() => {
       const getMyProfile = async () => {
         const { data } = await axios.get(
-          "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/user/portfolio/me",
+          "https://my-portfolio-backend-hwh0.onrender.com/api/v1/user/portfolio/me",
           { withCredentials: true }
         );
         setUser(data.user);

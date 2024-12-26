@@ -6,7 +6,7 @@ const Timeline = () => {
   useEffect(() => {
     const getMyTimeline = async () => {
       const { data } = await axios.get(
-        "https://mern-stack-portfolio-backend-code.onrender.com/api/v1/timeline/getall",
+        "https://my-portfolio-backend-hwh0.onrender.com/api/v1/timeline/getall",
         { withCredentials: true }
       );
       setTimeline(data.timelines);
